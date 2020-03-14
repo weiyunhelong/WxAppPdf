@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no">
+    <meta http-equiv="pragma" content="no-cache">
+    <meta http-equiv="cache-control" content="no-cache">
+    <meta http-equiv="expires" content="0">
+    <title>PDFH5</title>
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/pdfh5.css" />
+    <style>
+        html,
+        body {
+            width: 100vw;
+            height: 100vh;
+            overflow: auto;
+        }
+
+        .demo {
+            width: 100vw;
+            height: 100vw;
+            position: relative;
+        }
+
+        .collectbtnh {
+            width: 23px;
+            height: 20px;
+            background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAC4AAAAoCAYAAAH25/i8AAAABGdBTUEAALGPC/xhBQAABUpJREFUWAnNWF1PXEUY3mUV1EDAaLgRCoSFEKi1tRYTE7n0Qi70ghsSrwSuiIkaf4AXoKJoEQSEQEAIJCRe4KXRBAgtlDZo/FhDs5jspqHQLkvXUOkX9Pg8Z8+sc4Y57seBum/y7My8884z73ycd2bH44nLm0hes/J3rNTzhqGRHNTuCws59VoFtknovZBEARmTUFYwv2cp3kdawbzXxmHVkoqdayVH7UjpN94zmiZcE27ZurJa7UH5lOjH0pnjYMWTouK/UjRq1fagayT3INfbXGOFMJSNdHkOMjFQnQF1PwFXlMoQyt/LOv9tCP2ghEKh66i8EC/Ff/v6+pbMBvn5+QG5wikPY8N7B/IERO5Kl6+vr1/05ObmhpzYZD2ZSfLcPYhcoeYHBgaW5d5O3YeoRiwPDw9fkg1F/rTaYGxsbEVU6tKzDyBknJiYuKwzUHXnxsfHkxpWoZVRUFDw+8LCQoBTOjs7+7PP57tGPfCsxdrCcm1t7YW1tbUw7fr7+zkBt4EHlo0tMeRVp9uqPITk5eWtq3q13NbWNgfmq4J9dX5+PqVdohI5lQsLC38D+StmYNjd3dUOR/SebopVflxuY2xtbUWcPElH39DQMA/iX2Ry5p8HjGS716mjwcFBLmrS7/4FGqkb2Il0ZGSEX0BSUtjY5AxKhtj0Krm1t9MmtfWAwktyJ1NTU4xmrknVTurdkvK8+AbYATaBzwFxNCCbkBPIfQfEgHXgA+CQyAfgH6jda21tPRGJRDybm5u+pqamF6F7CMxKLfmZr3d1dT0Ti8W8gUDAV1dXx/OeU/WOZJfI7lRWVi6riybKRUVFv8LyL8Do7u6+KPRqivq/gQ+BhLybSsxobGycCwaD11RCtQxWjuAxwa7Wuyp3dnYugvhHknOxSMb8kYk4yuUFPTJyQXSs5ObE8yDIgYge3aTt7e0LaH9PcLSB96arVZQag5QLaPvwtkpKSi5LNhllQcpD5z3gkERKS0tXMmJFI7DdBz46xCopttHBpXQ7sIg/kXgcs9tlZWUpd2ARdzmyaSqi5eXljrFGjAztuCs+07RPqtqpqKhw7MAiZkjOWLTREmx3gfMZs0oNb/n9/iVpKkjcI9W7zsaqqqp4iecfv17XbBoCHmlfafRpq3LRgl/aNsAPJBl4RL4FOIkfFVMAv+BkXKz/FqgGUpZXYcmD38DJF5yenr4i1tEp3Yd0dHQs4ny4xXZAGDgJMOCOAKajOMMXw+HwdSceod/Y2LiBf1EMrLwXsO3XgC0OopwQzjBnzeBnw+guiNJJ70Kqq6svkodgIHdz85+ZmVkFzz7AQbwO2IT/I80tMTk56Tqgi4Fmeg8X7UWKW/A+Vv9P+MjJeFv2fIzKlpaWOWGcbSmujLzpMfpy9p8GTDH3NO6d0WxzWPanpqZGbEEzCPCWYv5BPDg44D7KWsFnJ3zjFcAURnyjubl5Th5hNuWj0Sgj1gHAg4SBxBTOehAwenp6EsdYtjjO1xDpxaQx7vK/v4yTP9D54uLi1aOKCG4H39vbuwSfuEf4YZ4GHIUHx03AwF135f8agPU0wb3MENgJpCynYBkBDN6lH9UAhoaG+OwhHP44ZW81hnxvMQ8nXqVTfXdJd4tY7zTC4bSu4BqfbSruryhg4Kp+ZAMYHR3liyn3L7fEp8CxyRkwiwEsZ7oC1hOvcLj72LzVEPNVxzxx+TDj9KqmbhnrqVk4/IWG95GpzqIn8zqLASw5DYCXN9jx7w23xHkga4RPjeYA+F9MDMB6chQOf5k13mocOQcd/4ZxZgX6NHZZq3oZnh1rlPgHt5kclynBtJ8AAAAASUVORK5CYII=) no-repeat;
+            background-size: cover;
+            position: fixed;
+            top: 38px;
+            right: 38px;
+            z-index: 9;
+        }
+
+        .collectbtn {
+            width: 23px;
+            height: 20px;
+            background: url(data:image/png;base64,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) no-repeat;
+            background-size: cover;
+            background-size: cover;
+            position: fixed;
+            top: 38px;
+            right: 38px;
+            z-index: 9;
+        }
+
+        .downbtn {
+            width: 125.6px;
+            height: 57.6px;
+            background: url(data:image/png;base64,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) no-repeat;
+            background-size: cover;
+            position: relative;
+            top: -166px;
+            left: calc(50vw - 62.8px);
+            display: none;
+        }
+
+        .maskv {
+            width: 100vw;
+            height: 10000vh;
+            background: #000;
+            opacity: 0.8;
+            position: fixed;
+            z-index: 100;
+            display: none;
+            top: 0;
+            left: 0;
+        }
+
+        .modalv {
+            width: 345px;
+            height: 215px;
+            background: #fff;
+            background: #fff;
+            position: fixed;
+            z-index: 100;
+            margin: 0 auto;
+            top: 10vh;
+            left: 12.5px;
+            display: none;
+        }
+
+        .tip {
+            width: 100%;
+            text-align: center;
+            font-size: 16px;
+            color: #000;
+            padding-top: 38px;
+            margin-bottom: 14px;
+        }
+
+        .opt {
+            width: 100%;
+            text-align: center;
+            font-size: 12px;
+            color: #4C8A93;
+            margin-bottom: 16px;
+        }
+
+        .path {
+            padding: 0 36px;
+            font-size: 12px;
+            color: #8D8D8D;
+            margin-bottom: 36px;
+            overflow: hidden;
+            white-space: nowrap;
+            text-overflow: ellipsis;
+        }
+
+        .copyopt {
+            width: 100%;
+            border-top: 1px solid rgba(213, 213, 213, 1);
+            font-size: 14px;
+            color: #3A3A3A;
+            text-align: center;
+            line-height: 54px;
+            letter-spacing: 4px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+
+<body>
+    <!--收藏的信息-->
+    <div id="collectbtn" onclick="collectopt()"></div>
+    <!--pdf内容-->
+    <div id="demo"></div>
+    <!--下载按钮-->
+    <div id="downbtn" class="downbtn" onclick="downopt()"></div>
+
+    <!--弹窗显示内容-->
+    <div class="maskv" id="mask"></div>
+    <div class="modalv" id="modal">
+        <div class="tip">复制链接，粘贴到浏览器下载</div>
+        <div class="opt" onclick="optteach()">操作教程</div>
+        <div class="path" id="filepath"></div>
+        <div class="copyopt" onclick="copyopt()">复制链接</div>
+    </div>
+
+    <script src="js/pdf.js" type="text/javascript" charset="utf-8"></script>
+    <script src="js/pdf.worker.js" type="text/javascript" charset="utf-8"></script>
+    <script src="js/jquery-1.11.3.min.js" type="text/javascript" charset="utf-8"></script>
+    <script src="js/pdfh5.js" type="text/javascript" charset="utf-8"></script>
+    <script src="js/clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+    <script type="text/javascript">
+        //当前默认优先获取浏览器地址栏？file=后面的地址，如果地址栏没有，再拿配置项的pdfurl或者data来渲染pdf
+        //优先顺序：  ？file= > pdfurl > data
+        var pdfh5 = new Pdfh5('#demo', {
+            pdfurl: "//www.gjtool.cn/pdfh5/default.pdf",
+            renderType: "canvas", //渲染模式为canvas，默认svg
+            lazy: true, //懒加载
+            scale: 2, //渲染的清晰度比例
+            scrollEnable: true, //是否允许pdf滚动
+        });
+
+        //pdf准备开始渲染，此时可以拿到pdf总页数
+        pdfh5.on("ready", function () {
+            console.log("总页数：" + this.totalNum)
+        })
+        //监听pdf渲染过程，currentPageDom当前加载的pdf的dom,currentNum当前加载的pdf页数,
+        pdfh5.on("render", function (currentNum, time, currentPageDom) {
+            console.log("当前渲染页：" + currentNum + "，耗时：" + time + "毫秒")
+        })
+        //监听完成事件，加载失败、渲染成功都会触发
+        pdfh5.on("complete", function (status, msg, time) {
+            console.log("状态：" + status + "，信息：" + msg + "，耗时：" + time + "毫秒，总页数：" + this.totalNum)
+
+            var height = $("#demo").height();
+            var pdfh = height * this.totalNum * 0.8;
+
+            $("#demo").css("height", pdfh);
+            $("#demo").css("margin-bottom", -60);
+            $("#downbtn").show();
+        })
+        //监听pdf渲染成功
+        pdfh5.on("success", function (time) {
+            console.log("加载完成，耗时" + time + "毫秒")
+        })
+
+
+        var openid = "",
+            iscollect = false,
+            filepath = "";
+
+        //页面初始化
+        $(function () {
+            openid = getQueryVariable("openid"); //OPENID
+            iscollect = getQueryVariable("iscollect"); //收藏
+            filepath = getQueryVariable("file"); //文件路径
+            filename =decodeURIComponent(getQueryVariable("name")); //文件名称
+
+            //设置页面标题为文件名称
+            $('title').html(filename);
+            //设置文件路径 
+            $("#filepath").text(filepath);
+
+            //判断用户是否已收藏
+            if (iscollect) {
+                $("#collectbtn").addClass("collectbtnh");
+            } else {
+                $("#collectbtn").addClass("collectbtn");
+            }
+
+        })
+
+        //获取url中的数据
+        function getQueryVariable(variable) {
+            var query = window.location.search.substring(1);
+            var vars = query.split("&");
+            for (var i = 0; i < vars.length; i++) {
+                var pair = vars[i].split("=");
+                if (pair[0] == variable) {
+                    return pair[1];
+                }
+            }
+            return (false);
+        }
+
+        //收藏操作
+        function collectopt() {
+            //TODO 收藏接口
+            if (iscollect) {
+                $("#collectbtn").removeClass("collectbtnh");
+                $("#collectbtn").addClass("collectbtn");
+                iscollect = false;
+            } else {
+                $("#collectbtn").addClass("collectbtnh");
+                $("#collectbtn").removeClass("collectbtn");
+                iscollect = true;
+            }
+        }
+
+        //下载操作
+        function downopt() {
+            $("#mask").show();
+            $("#modal").show();
+        }
+
+        //操作教程
+        function optteach() {
+            window.open("https://bowuguan-1254237371.cos.ap-shanghai.myqcloud.com/woolpdf/teachopt.html");
+        }
+
+        //复制操作
+        function copyopt() {
+            var content = $("#filepath").text();
+            var flag = copyText(content); //传递文本
+            alert(flag ? "复制成功！" : "复制失败！");
+        }
+
+        function copyText(text) {
+            var textarea = document.createElement("input"); //创建input对象
+            var currentFocus = document.activeElement; //当前获得焦点的元素
+            document.body.appendChild(textarea); //添加元素
+            textarea.value = text;
+            textarea.focus();
+            if (textarea.setSelectionRange)
+                textarea.setSelectionRange(0, textarea.value.length); //获取光标起始位置到结束位置
+            else
+                textarea.select();
+            try {
+                var flag = document.execCommand("copy"); //执行复制
+            } catch (eo) {
+                var flag = false;
+            }
+            document.body.removeChild(textarea); //删除元素
+            currentFocus.focus();
+            return flag;
+        }
+        //羊毛局pdf在线预览 
+        //http://xxxpdf.html?file=http://xxx.pdf&openid=xxxx&iscollect=false&name=xxx
+    </script>
+</body>
+
+</html>
