@@ -10,7 +10,7 @@
     <meta http-equiv="pragma" content="no-cache">
     <meta http-equiv="cache-control" content="no-cache">
     <meta http-equiv="expires" content="0">
-    <title>PDFH5</title>
+    <title></title>
     <link rel="stylesheet" href="css/style.css" />
     <link rel="stylesheet" href="css/pdfh5.css" />
     <style>
@@ -186,14 +186,16 @@
 
         var openid = "",
             iscollect = false,
-            filepath = "";
+            filepath = "",
+            articleId = 0;
 
         //页面初始化
         $(function () {
             openid = getQueryVariable("openid"); //OPENID
             iscollect = getQueryVariable("iscollect"); //收藏
+            articleId = getQueryVariable("id"); //文件id
             filepath = getQueryVariable("file"); //文件路径
-            filename =decodeURIComponent(getQueryVariable("name")); //文件名称
+            filename = decodeURIComponent(getQueryVariable("name")); //文件名称
 
             //设置页面标题为文件名称
             $('title').html(filename);
@@ -225,15 +227,27 @@
         //收藏操作
         function collectopt() {
             //TODO 收藏接口
-            if (iscollect) {
-                $("#collectbtn").removeClass("collectbtnh");
-                $("#collectbtn").addClass("collectbtn");
-                iscollect = false;
-            } else {
-                $("#collectbtn").addClass("collectbtnh");
-                $("#collectbtn").removeClass("collectbtn");
-                iscollect = true;
-            }
+            $.ajax({
+                type: 'POST',
+                url: 'https://wool.getconnectplus.com/update/user/favorite',
+                data: {
+                    articleId: articleId,
+                    openid: openid
+                },
+                dataType: "json",
+                success: function (data) {
+                    if (iscollect) {
+                        $("#collectbtn").removeClass("collectbtnh");
+                        $("#collectbtn").addClass("collectbtn");
+                        iscollect = false;
+                    } else {
+                        $("#collectbtn").addClass("collectbtnh");
+                        $("#collectbtn").removeClass("collectbtn");
+                        iscollect = true;
+                    }
+                }
+            })
+
         }
 
         //下载操作
@@ -244,7 +258,7 @@
 
         //操作教程
         function optteach() {
-            window.open("https://bowuguan-1254237371.cos.ap-shanghai.myqcloud.com/woolpdf/teachopt.html");
+            window.location.href = "https://bowuguan-1254237371.cos.ap-shanghai.myqcloud.com/woolpdf/teachopt.html";
         }
 
         //复制操作
@@ -274,7 +288,7 @@
             return flag;
         }
         //羊毛局pdf在线预览 
-        //http://xxxpdf.html?file=http://xxx.pdf&openid=xxxx&iscollect=false&name=xxx
+        //http://xxxpdf.html?file=http://xxx.pdf&openid=xxxx&iscollect=false&name=xxx&id=xx
     </script>
 </body>
 
