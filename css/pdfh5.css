@@ -85,6 +85,7 @@
 	top: 0px;
 	left: 0px;
 	transition: all .3s;
+	display: none;
 }
 
 .pdfjs .loadingBar .progress {
@@ -104,7 +105,7 @@
 	left: 0;
 	height: 100%;
 	width: calc(100% + 150px);
-	background: #7bcf34;
+	background: #fff;
 }
 .pdfjs .backTop {
 	width: 50px;

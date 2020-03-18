@@ -262,10 +262,14 @@
                         $("#collectbtn").removeClass("collectbtnh");
                         $("#collectbtn").addClass("collectbtn");
                         iscollect = false;
+                        alert("取消收藏");
+
                     } else {
                         $("#collectbtn").addClass("collectbtnh");
                         $("#collectbtn").removeClass("collectbtn");
                         iscollect = true;
+
+                        alert("收藏成功");
                     }
                 }
             })
